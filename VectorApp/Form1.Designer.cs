@@ -34,7 +34,14 @@
             btnLine = new Button();
             btnRect = new Button();
             canvas1 = new Canvas();
+            label1 = new Label();
+            btnRenk1 = new Button();
+            label2 = new Label();
+            btnRenk2 = new Button();
+            label3 = new Label();
+            numCizgiKalinlik = new NumericUpDown();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numCizgiKalinlik).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -97,17 +104,82 @@
             canvas1.TabIndex = 1;
             canvas1.Text = "canvas1";
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(139, 425);
+            label1.Name = "label1";
+            label1.Size = new Size(84, 20);
+            label1.TabIndex = 2;
+            label1.Text = "Çizgi Rengi";
+            // 
+            // btnRenk1
+            // 
+            btnRenk1.BackColor = Color.Black;
+            btnRenk1.Location = new Point(229, 416);
+            btnRenk1.Name = "btnRenk1";
+            btnRenk1.Size = new Size(54, 38);
+            btnRenk1.TabIndex = 3;
+            btnRenk1.UseVisualStyleBackColor = false;
+            btnRenk1.Click += btnRenk1_Click;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(139, 476);
+            label2.Name = "label2";
+            label2.Size = new Size(92, 20);
+            label2.TabIndex = 2;
+            label2.Text = "Dolgu Rengi";
+            // 
+            // btnRenk2
+            // 
+            btnRenk2.BackColor = Color.White;
+            btnRenk2.Location = new Point(229, 467);
+            btnRenk2.Name = "btnRenk2";
+            btnRenk2.Size = new Size(54, 38);
+            btnRenk2.TabIndex = 3;
+            btnRenk2.UseVisualStyleBackColor = false;
+            btnRenk2.Click += btnRenk2_Click;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(305, 425);
+            label3.Name = "label3";
+            label3.Size = new Size(100, 20);
+            label3.TabIndex = 4;
+            label3.Text = "Çizgi Kalınlığı";
+            // 
+            // numCizgiKalinlik
+            // 
+            numCizgiKalinlik.Location = new Point(421, 425);
+            numCizgiKalinlik.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            numCizgiKalinlik.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numCizgiKalinlik.Name = "numCizgiKalinlik";
+            numCizgiKalinlik.Size = new Size(85, 27);
+            numCizgiKalinlik.TabIndex = 5;
+            numCizgiKalinlik.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 517);
+            Controls.Add(numCizgiKalinlik);
+            Controls.Add(label3);
+            Controls.Add(btnRenk2);
+            Controls.Add(label2);
+            Controls.Add(btnRenk1);
+            Controls.Add(label1);
             Controls.Add(canvas1);
             Controls.Add(panel1);
             Name = "Form1";
             Text = "Form1";
             panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)numCizgiKalinlik).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -118,5 +190,11 @@
         private Button btnLine;
         private Button btnRect;
         private Canvas canvas1;
+        private Label label1;
+        private Button btnRenk1;
+        private Label label2;
+        private Button btnRenk2;
+        private Label label3;
+        private NumericUpDown numCizgiKalinlik;
     }
 }
