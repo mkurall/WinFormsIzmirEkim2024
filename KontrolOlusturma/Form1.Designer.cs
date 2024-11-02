@@ -30,13 +30,14 @@
         {
             btkButton1 = new BtkButton();
             btkButton2 = new BtkButton();
+            btkSwitchButton1 = new BtkSwitchButton();
             SuspendLayout();
             // 
             // btkButton1
             // 
             btkButton1.BackColor = Color.BlueViolet;
             btkButton1.ForeColor = Color.White;
-            btkButton1.Location = new Point(125, 104);
+            btkButton1.Location = new Point(56, 46);
             btkButton1.Name = "btkButton1";
             btkButton1.Size = new Size(157, 49);
             btkButton1.TabIndex = 0;
@@ -47,18 +48,27 @@
             // 
             btkButton2.BackColor = Color.BlueViolet;
             btkButton2.ForeColor = Color.White;
-            btkButton2.Location = new Point(311, 104);
+            btkButton2.Location = new Point(242, 46);
             btkButton2.Name = "btkButton2";
             btkButton2.Size = new Size(148, 49);
             btkButton2.TabIndex = 1;
             btkButton2.Text = "btkButton2";
             btkButton2.UseVisualStyleBackColor = false;
             // 
+            // btkSwitchButton1
+            // 
+            btkSwitchButton1.Location = new Point(56, 126);
+            btkSwitchButton1.Name = "btkSwitchButton1";
+            btkSwitchButton1.Size = new Size(305, 191);
+            btkSwitchButton1.TabIndex = 2;
+            btkSwitchButton1.Text = "btkSwitchButton1";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btkSwitchButton1);
             Controls.Add(btkButton2);
             Controls.Add(btkButton1);
             Name = "Form1";
@@ -70,5 +80,6 @@
 
         private BtkButton btkButton1;
         private BtkButton btkButton2;
+        private BtkSwitchButton btkSwitchButton1;
     }
 }
