@@ -589,15 +589,5 @@ namespace BlackJack.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Z3x0Mb {
-            get {
-                object obj = ResourceManager.GetObject("Z3x0Mb", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }

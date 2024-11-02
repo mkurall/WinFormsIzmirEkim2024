@@ -21,7 +21,25 @@ namespace BlackJack
             {
                 deste.Add(i);
             }
+
+
+            Random rnd  = new Random();
+
+            for (int k = 0; k < 3;k++) 
+            for (int i = 0;i<deste.Count;i++)
+            {
+                int rasgele = rnd.Next(0, deste.Count);//indeks
+                int kart = deste[rasgele];
+                deste.RemoveAt(rasgele);//kartý desteden çýkar
+                deste.Add((int)kart);//kartý destenin sonuna ekle
+            }
+            
             lblDesteKartSayisi.Text = deste.Count.ToString();
+
+            pbDeste.Image = Properties.Resources.KartArka;
+
+            pnlOyuncu1.Controls.Clear();
+            pnlOyuncu2.Controls.Clear();
 
             oyuncuSayi1 = 0;
             oyuncuSayi2 = 0;

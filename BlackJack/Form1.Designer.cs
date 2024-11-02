@@ -74,7 +74,6 @@
             // 
             // pbDeste
             // 
-            pbDeste.Image = Properties.Resources.KartArka;
             pbDeste.Location = new Point(15, 13);
             pbDeste.Name = "pbDeste";
             pbDeste.Size = new Size(103, 140);
