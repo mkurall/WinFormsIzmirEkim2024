@@ -8,6 +8,7 @@ namespace KontrolOlusturma
 {
     public class BtkSwitchButton : Control
     {
+        bool isChecked = false;
         public BtkSwitchButton()
         {
             
@@ -32,7 +33,35 @@ namespace KontrolOlusturma
                     new Rectangle(0,0,img.Width, img.Height),
                     GraphicsUnit.Pixel);
             */
-        
+
+            int w = Height - 5;
+            int h = Height - 5;
+
+            e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+
+            if (isChecked)
+            {
+                e.Graphics.FillRoundedRectangle(Brushes.Green,
+                    new Rectangle(0, 0, Width - 1, Height - 1), 20);
+
+                e.Graphics.FillEllipse(Brushes.White,
+                    new Rectangle(Width-w-2, (Height - h)/2, w, h));
+            }
+            else
+            {
+                e.Graphics.FillRoundedRectangle(Brushes.Silver,
+                    new Rectangle(0, 0, Width - 1, Height - 1), 20);
+
+                e.Graphics.FillEllipse(Brushes.White,
+                    new Rectangle(3, (Height - h)/2, w, h));
+    ;
+            }
+        }
+
+        protected override void OnMouseDown(MouseEventArgs e)
+        {
+            isChecked = !isChecked;
+            Invalidate();//ekranı yeniler
         }
     }
 }

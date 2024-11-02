@@ -30,7 +30,10 @@
         {
             btkButton1 = new BtkButton();
             btkButton2 = new BtkButton();
+            btkSwitchButton2 = new BtkSwitchButton();
             btkSwitchButton1 = new BtkSwitchButton();
+            btkSwitchButton3 = new BtkSwitchButton();
+            label1 = new Label();
             SuspendLayout();
             // 
             // btkButton1
@@ -55,31 +58,67 @@
             btkButton2.Text = "btkButton2";
             btkButton2.UseVisualStyleBackColor = false;
             // 
+            // btkSwitchButton2
+            // 
+            btkSwitchButton2.Location = new Point(341, 174);
+            btkSwitchButton2.Name = "btkSwitchButton2";
+            btkSwitchButton2.Size = new Size(81, 38);
+            btkSwitchButton2.TabIndex = 3;
+            btkSwitchButton2.Text = "btkSwitchButton2";
+            // 
             // btkSwitchButton1
             // 
-            btkSwitchButton1.Location = new Point(56, 126);
+            btkSwitchButton1.Location = new Point(341, 218);
             btkSwitchButton1.Name = "btkSwitchButton1";
-            btkSwitchButton1.Size = new Size(305, 191);
-            btkSwitchButton1.TabIndex = 2;
-            btkSwitchButton1.Text = "btkSwitchButton1";
+            btkSwitchButton1.Size = new Size(81, 38);
+            btkSwitchButton1.TabIndex = 3;
+            btkSwitchButton1.Text = "btkSwitchButton2";
+            btkSwitchButton1.Click += btkSwitchButton1_Click;
+            // 
+            // btkSwitchButton3
+            // 
+            btkSwitchButton3.Location = new Point(341, 262);
+            btkSwitchButton3.Name = "btkSwitchButton3";
+            btkSwitchButton3.Size = new Size(81, 38);
+            btkSwitchButton3.TabIndex = 3;
+            btkSwitchButton3.Text = "btkSwitchButton2";
+            btkSwitchButton3.Click += btkSwitchButton1_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(165, 182);
+            label1.Name = "label1";
+            label1.Size = new Size(170, 20);
+            label1.TabIndex = 4;
+            label1.Text = "Depolama Alanını Yönet";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Black;
             ClientSize = new Size(800, 450);
+            Controls.Add(label1);
+            Controls.Add(btkSwitchButton3);
             Controls.Add(btkSwitchButton1);
+            Controls.Add(btkSwitchButton2);
             Controls.Add(btkButton2);
             Controls.Add(btkButton1);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private BtkButton btkButton1;
         private BtkButton btkButton2;
+        private BtkSwitchButton btkSwitchButton2;
         private BtkSwitchButton btkSwitchButton1;
+        private BtkSwitchButton btkSwitchButton3;
+        private Label label1;
     }
 }

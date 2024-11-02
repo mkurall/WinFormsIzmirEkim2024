@@ -6,5 +6,10 @@ namespace KontrolOlusturma
         {
             InitializeComponent();
         }
+
+        private void btkSwitchButton1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
