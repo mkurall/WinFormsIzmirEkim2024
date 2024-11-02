@@ -31,8 +31,8 @@
             listBox1 = new ListBox();
             label1 = new Label();
             label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
+            lblPuan1 = new Label();
+            lblPuan2 = new Label();
             button1 = new Button();
             SuspendLayout();
             // 
@@ -66,25 +66,25 @@
             label2.TabIndex = 1;
             label2.Text = "Oyuncu2";
             // 
-            // label3
+            // lblPuan1
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(58, 41);
-            label3.Margin = new Padding(5, 0, 5, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(27, 32);
-            label3.TabIndex = 1;
-            label3.Text = "0";
+            lblPuan1.AutoSize = true;
+            lblPuan1.Location = new Point(58, 41);
+            lblPuan1.Margin = new Padding(5, 0, 5, 0);
+            lblPuan1.Name = "lblPuan1";
+            lblPuan1.Size = new Size(27, 32);
+            lblPuan1.TabIndex = 1;
+            lblPuan1.Text = "0";
             // 
-            // label4
+            // lblPuan2
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(328, 48);
-            label4.Margin = new Padding(5, 0, 5, 0);
-            label4.Name = "label4";
-            label4.Size = new Size(27, 32);
-            label4.TabIndex = 1;
-            label4.Text = "0";
+            lblPuan2.AutoSize = true;
+            lblPuan2.Location = new Point(328, 48);
+            lblPuan2.Margin = new Padding(5, 0, 5, 0);
+            lblPuan2.Name = "lblPuan2";
+            lblPuan2.Size = new Size(27, 32);
+            lblPuan2.TabIndex = 1;
+            lblPuan2.Text = "0";
             // 
             // button1
             // 
@@ -101,9 +101,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(424, 610);
             Controls.Add(button1);
-            Controls.Add(label4);
+            Controls.Add(lblPuan2);
             Controls.Add(label2);
-            Controls.Add(label3);
+            Controls.Add(lblPuan1);
             Controls.Add(label1);
             Controls.Add(listBox1);
             Font = new Font("Segoe UI", 14F);
@@ -119,8 +119,8 @@
         private ListBox listBox1;
         private Label label1;
         private Label label2;
-        private Label label3;
-        private Label label4;
+        private Label lblPuan1;
+        private Label lblPuan2;
         private Button button1;
     }
 }
