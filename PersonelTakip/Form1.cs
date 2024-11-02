@@ -19,7 +19,14 @@ namespace PersonelTakip
 
         private void btnEkleGuncelle_Click(object sender, EventArgs e)
         {
-            Personel yeni = new Personel();
+            Personel yeni = lboxPersoneller.SelectedItem as Personel;
+
+            if (yeni == null)
+                yeni = new Personel();
+
+
+
+
             yeni.Id = 0;
             yeni.AdSoyad = txtAdSoyad.Text;
             yeni.CalistigiBirim = txtCalistigiBirim.Text;
@@ -46,7 +53,9 @@ namespace PersonelTakip
             else
                 yeni.SaglikSigortasi = (int)SigortaTuru.Ozel;
 
-            DosyaYardimcisi.PersonelEkle(yeni);
+
+            if (lboxPersoneller.SelectedItem == null)//eski persomnel seçili deðilse ekle
+                DosyaYardimcisi.PersonelEkle(yeni);
 
             //Datasource liste kutusuna veri baðlamak için kullanýlýr
             lboxPersoneller.DataSource = null;
@@ -67,7 +76,7 @@ namespace PersonelTakip
             Personel pers = lboxPersoneller.SelectedItem as Personel;
             //as operatörü deðer null deðilse convert eder, null ise null döner 
 
-            if(pers!=null)//var ise
+            if (pers != null)//var ise
             {
                 txtAdSoyad.Text = pers.AdSoyad;
                 txtCalistigiBirim.Text = pers.CalistigiBirim;
@@ -78,7 +87,7 @@ namespace PersonelTakip
 
                 if (pers.SaglikSigortasi == (int)SigortaTuru.Sgk)
                     rdSgk.Checked = true;
-                else if(pers.SaglikSigortasi == (int)SigortaTuru.Ozel)
+                else if (pers.SaglikSigortasi == (int)SigortaTuru.Ozel)
                     rdOzel.Checked = true;
 
             }
@@ -90,6 +99,11 @@ namespace PersonelTakip
                 cboxPersonelTuru.SelectedIndex = -1;
                 rdSgk.Checked = rdOzel.Checked = false;
             }
+        }
+
+        private void btnYeni_Click(object sender, EventArgs e)
+        {
+            lboxPersoneller.SelectedIndex = -1;
         }
     }
 }

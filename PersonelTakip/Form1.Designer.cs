@@ -58,6 +58,7 @@
             label4 = new Label();
             txtAdSoyad = new TextBox();
             label3 = new Label();
+            btnYeni = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
@@ -134,6 +135,7 @@
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.BackColor = Color.Salmon;
+            splitContainer1.Panel2.Controls.Add(btnYeni);
             splitContainer1.Panel2.Controls.Add(btnEkleGuncelle);
             splitContainer1.Panel2.Controls.Add(toolStrip1);
             splitContainer1.Panel2.Controls.Add(rdOzel);
@@ -381,6 +383,17 @@
             label3.TabIndex = 0;
             label3.Text = "Ad Soyad";
             // 
+            // btnYeni
+            // 
+            btnYeni.BackColor = Color.LimeGreen;
+            btnYeni.Location = new Point(399, 42);
+            btnYeni.Name = "btnYeni";
+            btnYeni.Size = new Size(65, 29);
+            btnYeni.TabIndex = 8;
+            btnYeni.Text = "Yeni";
+            btnYeni.UseVisualStyleBackColor = false;
+            btnYeni.Click += btnYeni_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -437,5 +450,6 @@
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripButton tsbSil;
         private Button btnEkleGuncelle;
+        private Button btnYeni;
     }
 }
