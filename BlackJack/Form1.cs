@@ -52,12 +52,41 @@ namespace BlackJack
 
         private void btnKartCek1_Click(object sender, EventArgs e)
         {
+            KartCek(pnlOyuncu1);
             SiradakiOyuncuyuDegistir(1);
         }
 
         private void btnKartCek2_Click(object sender, EventArgs e)
         {
+            KartCek(pnlOyuncu2);
+
             SiradakiOyuncuyuDegistir(0);
+        }
+
+        void KartCek(Panel pnl)
+        {
+            int kart = deste[0];
+
+            deste.RemoveAt(0);//0.indeksten sil
+            lblDesteKartSayisi.Text = deste.Count.ToString();
+
+            int sira = kart % 13;
+            int grup = kart / 13;
+
+            KartTuru tur = (KartTuru)grup;
+            string resAdi = $"{tur}{sira+1}";
+
+
+            //caliþma zamaný kontrol oluþtur
+            PictureBox pb = new PictureBox();
+            pb.Size = new Size(103, 140);
+            
+            pb.Location = new Point(5, 5);
+
+            pb.Image = (Image)Properties.Resources.ResourceManager.GetObject(resAdi);
+            pb.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            pnl.Controls.Add(pb);
         }
     }
 }
