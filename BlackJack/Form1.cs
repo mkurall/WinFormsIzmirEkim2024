@@ -3,6 +3,8 @@ namespace BlackJack
     public partial class Form1 : Form
     {
         List<int> deste = new List<int>();//kart numarasýný tutacak (0 - 51)
+        List<Skor> skorlar = new List<Skor>();
+
         enum KartTuru { Kupa = 0, Karo = 1, Sinek = 2, Maca = 3 };
         //her bir türde 13 kart var
         int siradakiOyuncu = 0; // 2 oyuncu var (0-1)
@@ -90,7 +92,7 @@ namespace BlackJack
 
             pas1 = 0;
 
-            if(!OyunBittiMiKontrolEt())
+            if (!OyunBittiMiKontrolEt())
                 SiradakiOyuncuyuDegistir(1);
         }
 
@@ -165,7 +167,8 @@ namespace BlackJack
             else if (oyuncuSayi1 == 21) { kazanan = 0; durum = true; }
             else if (oyuncuSayi2 == 21) { kazanan = 1; durum = true; }
 
-            else if (pas1 == 2 && pas2 == 2) {
+            else if (pas1 == 2 && pas2 == 2)
+            {
                 if (oyuncuSayi1 > oyuncuSayi2)
                     kazanan = 0;
                 else if (oyuncuSayi1 < oyuncuSayi2)
@@ -173,8 +176,8 @@ namespace BlackJack
                 else
                     kazanan = 2;//Beraberlik
 
-                durum = true; 
-            
+                durum = true;
+
             }
 
             if (durum)
@@ -196,10 +199,10 @@ namespace BlackJack
 
             if (kazanan == 0)
             {
-                
+
                 lblKazanan.Location = new Point(lblOyuncu1.Left + (lblOyuncu1.Width - lblKazanan.Width) / 2, lblOyuncu1.Top - lblKazanan.Height - 10);
             }
-            else if(kazanan == 1)
+            else if (kazanan == 1)
             {
                 lblKazanan.Location = new Point(lblOyuncu2.Left + (lblOyuncu2.Width - lblKazanan.Width) / 2, lblOyuncu2.Top - lblKazanan.Height - 10);
 
@@ -217,7 +220,16 @@ namespace BlackJack
 
 
             lblKazanan.Visible = true;
+
+            Skor s = new Skor() { Oyuncu1Puan = oyuncuSayi1, Oyuncu2Puan = oyuncuSayi2 };
+            skorlar.Add(s);
+
         }
 
+        private void btnSkorlar_Click(object sender, EventArgs e)
+        {
+            FrmSkorlar form = new FrmSkorlar(skorlar);
+            form.ShowDialog();
+        }
     }
 }

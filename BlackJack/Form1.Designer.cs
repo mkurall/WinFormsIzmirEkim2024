@@ -209,6 +209,7 @@
             btnSkorlar.TabIndex = 9;
             btnSkorlar.Text = "Skorları Göster";
             btnSkorlar.UseVisualStyleBackColor = true;
+            btnSkorlar.Click += btnSkorlar_Click;
             // 
             // btnBaslat
             // 
