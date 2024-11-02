@@ -45,6 +45,7 @@
             pnlOyuncu2 = new Panel();
             btnSkorlar = new Button();
             btnBaslat = new Button();
+            lblKazanan = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbDeste).BeginInit();
             pnlOyuncu1Butonlar.SuspendLayout();
@@ -107,6 +108,7 @@
             btnPas1.TabIndex = 0;
             btnPas1.Text = "Pas";
             btnPas1.UseVisualStyleBackColor = true;
+            btnPas1.Click += btnPas1_Click;
             // 
             // btnKartCek1
             // 
@@ -130,14 +132,14 @@
             // 
             // lblOyuncu1Sayi
             // 
-            lblOyuncu1Sayi.AutoSize = true;
             lblOyuncu1Sayi.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
             lblOyuncu1Sayi.ForeColor = Color.White;
-            lblOyuncu1Sayi.Location = new Point(24, 334);
+            lblOyuncu1Sayi.Location = new Point(4, 334);
             lblOyuncu1Sayi.Name = "lblOyuncu1Sayi";
-            lblOyuncu1Sayi.Size = new Size(40, 46);
+            lblOyuncu1Sayi.Size = new Size(60, 46);
             lblOyuncu1Sayi.TabIndex = 4;
             lblOyuncu1Sayi.Text = "0";
+            lblOyuncu1Sayi.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblOyuncu2Sayi
             // 
@@ -178,6 +180,7 @@
             btnPas2.TabIndex = 0;
             btnPas2.Text = "Pas";
             btnPas2.UseVisualStyleBackColor = true;
+            btnPas2.Click += btnPas2_Click;
             // 
             // btnKartCek2
             // 
@@ -218,12 +221,26 @@
             btnBaslat.UseVisualStyleBackColor = true;
             btnBaslat.Click += btnBaslat_Click;
             // 
+            // lblKazanan
+            // 
+            lblKazanan.AutoSize = true;
+            lblKazanan.BackColor = Color.LavenderBlush;
+            lblKazanan.Font = new Font("Segoe UI", 30F, FontStyle.Bold);
+            lblKazanan.ForeColor = Color.Crimson;
+            lblKazanan.Location = new Point(127, 169);
+            lblKazanan.Name = "lblKazanan";
+            lblKazanan.Size = new Size(277, 67);
+            lblKazanan.TabIndex = 10;
+            lblKazanan.Text = "KAZANAN";
+            lblKazanan.Visible = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Green;
             ClientSize = new Size(1071, 551);
+            Controls.Add(lblKazanan);
             Controls.Add(btnBaslat);
             Controls.Add(btnSkorlar);
             Controls.Add(lblOyuncu2Sayi);
@@ -264,5 +281,6 @@
         private Panel pnlOyuncu2;
         private Button btnSkorlar;
         private Button btnBaslat;
+        private Label lblKazanan;
     }
 }
