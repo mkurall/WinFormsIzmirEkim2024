@@ -107,6 +107,7 @@
             lboxPersoneller.Name = "lboxPersoneller";
             lboxPersoneller.Size = new Size(235, 390);
             lboxPersoneller.TabIndex = 1;
+            lboxPersoneller.SelectedIndexChanged += lboxPersoneller_SelectedIndexChanged;
             // 
             // label2
             // 
@@ -186,6 +187,7 @@
             tsbKaydet.Name = "tsbKaydet";
             tsbKaydet.Size = new Size(36, 36);
             tsbKaydet.Text = "toolStripButton1";
+            tsbKaydet.Click += tsbKaydet_Click;
             // 
             // toolStripSeparator1
             // 
