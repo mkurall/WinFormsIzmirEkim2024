@@ -78,6 +78,26 @@ namespace PersonelTakip
                 cboxPersonelTuru.SelectedIndex = pers.Turu;
 
                 //to do:çalýþma günlerini göster
+                CheckBox[] chk = { null, chkPzt, chkSal, chkCar, chkPer, chkCum, chkCmt, chkPaz };
+                Array degerler = Enum.GetValues(typeof(Gunler));
+
+                for (int i = 1;i<chk.Length;i++)
+                {
+                    CheckBox c = chk[i];
+
+                    Gunler gunler = (Gunler)pers.CalismaGunleri;
+
+                    if (gunler.HasFlag((Gunler)degerler.GetValue(i)))
+                    {
+                        c.Checked = true;
+                    }
+                    else
+                    {
+                        c.Checked = false;
+                    }
+                }
+
+
 
                 if (pers.SaglikSigortasi == (int)SigortaTuru.Sgk)
                     rdSgk.Checked = true;
