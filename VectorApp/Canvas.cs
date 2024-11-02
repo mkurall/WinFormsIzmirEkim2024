@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace VectorApp
@@ -18,6 +19,10 @@ namespace VectorApp
 
         public enum SekilTurleri { Pointer = 0, Dortgen = 1, Cizgi = 2};
         public SekilTurleri SekilTuru { get; set; }
+
+        public Color CizgiRengi { get; set; }
+        public Color DolguRengi { get; set; }
+        public int CizgiKalinligi { get; set; }
 
         public Canvas() {
             this.SetStyle(
@@ -46,14 +51,17 @@ namespace VectorApp
                     dortgen.Bounds = Rectangle.FromLTRB( 
                         
                         Math.Min(pt1.X, pt2.X), Math.Min(pt1.Y, pt2.Y), Math.Max(pt1.X, pt2.X), Math.Max(pt1.Y, pt2.Y));
-   
 
-
+                    dortgen.CizgiRengi = CizgiRengi;
+                    dortgen.DolguRengi = DolguRengi;
+                    dortgen.CizgiKalinligi = CizgiKalinligi;
                     dortgen.Paint(e.Graphics);
                 }
                 else if(SekilTuru == SekilTurleri.Cizgi)
                 {
                     cizgi.Bounds = Rectangle.FromLTRB(pt1.X, pt1.Y, pt2.X, pt2.Y);
+                    cizgi.CizgiRengi = CizgiRengi;
+                    cizgi.CizgiKalinligi = CizgiKalinligi;
                     cizgi.Paint(e.Graphics);
                 }
             }
@@ -82,7 +90,9 @@ namespace VectorApp
             else if (SekilTuru == SekilTurleri.Cizgi)
                 sekil = new Cizgi() { Bounds = Rectangle.FromLTRB(pt1.X, pt1.Y, pt2.X, pt2.Y) };
 
-
+            sekil.CizgiRengi = CizgiRengi;
+            sekil.DolguRengi = DolguRengi;
+            sekil.CizgiKalinligi = CizgiKalinligi;
             sekilList.Add(sekil);
 
             Invalidate();
@@ -94,5 +104,26 @@ namespace VectorApp
             pt2 = e.Location;
             Invalidate();
         }
+
+        public void Kaydet(string dosyaAdi)
+        {
+            string veri = JsonSerializer.Serialize<List<Sekil>>(sekilList);
+            File.WriteAllText(dosyaAdi, veri);
+        }
+
+        public void DosyaAc(string dosyaAdi)
+        {
+            if(File.Exists(dosyaAdi))
+            {
+                string veri = File.ReadAllText(dosyaAdi);
+
+                var liste = JsonSerializer.Deserialize<List<Sekil>>(veri);
+
+                sekilList = liste;
+
+                Invalidate();
+            }
+        }
+
     }
 }

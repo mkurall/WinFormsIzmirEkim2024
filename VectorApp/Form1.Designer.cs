@@ -40,6 +40,8 @@
             btnRenk2 = new Button();
             label3 = new Label();
             numCizgiKalinlik = new NumericUpDown();
+            btnKaydet = new Button();
+            btnAc = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numCizgiKalinlik).BeginInit();
             SuspendLayout();
@@ -97,6 +99,9 @@
             // 
             // canvas1
             // 
+            canvas1.CizgiKalinligi = 0;
+            canvas1.CizgiRengi = Color.Empty;
+            canvas1.DolguRengi = Color.Empty;
             canvas1.Location = new Point(109, 46);
             canvas1.Name = "canvas1";
             canvas1.SekilTuru = Canvas.SekilTurleri.Pointer;
@@ -160,12 +165,35 @@
             numCizgiKalinlik.Size = new Size(85, 27);
             numCizgiKalinlik.TabIndex = 5;
             numCizgiKalinlik.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            numCizgiKalinlik.ValueChanged += numCizgiKalinlik_ValueChanged;
+            // 
+            // btnKaydet
+            // 
+            btnKaydet.Location = new Point(12, 11);
+            btnKaydet.Name = "btnKaydet";
+            btnKaydet.Size = new Size(94, 29);
+            btnKaydet.TabIndex = 6;
+            btnKaydet.Text = "Kaydet";
+            btnKaydet.UseVisualStyleBackColor = true;
+            btnKaydet.Click += btnKaydet_Click;
+            // 
+            // btnAc
+            // 
+            btnAc.Location = new Point(112, 11);
+            btnAc.Name = "btnAc";
+            btnAc.Size = new Size(94, 29);
+            btnAc.TabIndex = 7;
+            btnAc.Text = "Aç";
+            btnAc.UseVisualStyleBackColor = true;
+            btnAc.Click += btnAc_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 517);
+            Controls.Add(btnAc);
+            Controls.Add(btnKaydet);
             Controls.Add(numCizgiKalinlik);
             Controls.Add(label3);
             Controls.Add(btnRenk2);
@@ -196,5 +224,7 @@
         private Button btnRenk2;
         private Label label3;
         private NumericUpDown numCizgiKalinlik;
+        private Button btnKaydet;
+        private Button btnAc;
     }
 }
