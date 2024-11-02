@@ -11,10 +11,9 @@ namespace PersonelTakip
         {
             DosyaYardimcisi.VerileriYukle();
 
-            //Datasource liste kutusuna veri baðlamak için kullanýlýr
-            lboxPersoneller.DataSource = DosyaYardimcisi.PersonelleriGetir();
-            lboxPersoneller.DisplayMember = "AdSoyad";//Liste ekranýnda hangi veri görünecek
-            lboxPersoneller.ValueMember = "Id";
+            lboxPersoneller.VeriBagla(DosyaYardimcisi.PersonelleriGetir(),
+                "Id", "Adsoyad");
+
         }
 
         private void btnEkleGuncelle_Click(object sender, EventArgs e)
@@ -23,9 +22,6 @@ namespace PersonelTakip
 
             if (yeni == null)
                 yeni = new Personel();
-
-
-
 
             yeni.Id = 0;
             yeni.AdSoyad = txtAdSoyad.Text;
@@ -57,11 +53,9 @@ namespace PersonelTakip
             if (lboxPersoneller.SelectedItem == null)//eski persomnel seçili deðilse ekle
                 DosyaYardimcisi.PersonelEkle(yeni);
 
-            //Datasource liste kutusuna veri baðlamak için kullanýlýr
-            lboxPersoneller.DataSource = null;
-            lboxPersoneller.DataSource = DosyaYardimcisi.PersonelleriGetir();
-            lboxPersoneller.DisplayMember = "AdSoyad";//Liste ekranýnda hangi veri görünecek
-            lboxPersoneller.ValueMember = "Id";
+
+            lboxPersoneller.VeriBagla(DosyaYardimcisi.PersonelleriGetir(),
+                "Id", "Adsoyad");
         }
 
         private void tsbKaydet_Click(object sender, EventArgs e)
@@ -104,6 +98,26 @@ namespace PersonelTakip
         private void btnYeni_Click(object sender, EventArgs e)
         {
             lboxPersoneller.SelectedIndex = -1;
+        }
+
+        private void tsbSil_Click(object sender, EventArgs e)
+        {
+            Personel pers = lboxPersoneller.SelectedItem as Personel;
+
+            if (pers!=null)
+            {
+                var cevap = MessageBox.Show($"{pers.AdSoyad} adlý personeli silmek istediðinize" +
+                    $" emin misiniz?","Uyarý", MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning);
+
+                if (cevap == DialogResult.Yes)
+                {
+                    DosyaYardimcisi.PersonelSil(pers);
+
+                    lboxPersoneller.VeriBagla(DosyaYardimcisi.PersonelleriGetir(),
+                        "Id", "Adsoyad");
+                }
+            }
         }
     }
 }

@@ -34,6 +34,7 @@
             lboxPersoneller = new ListBox();
             label2 = new Label();
             splitContainer1 = new SplitContainer();
+            btnYeni = new Button();
             btnEkleGuncelle = new Button();
             toolStrip1 = new ToolStrip();
             tsbKaydet = new ToolStripButton();
@@ -58,7 +59,6 @@
             label4 = new Label();
             txtAdSoyad = new TextBox();
             label3 = new Label();
-            btnYeni = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
@@ -161,6 +161,17 @@
             splitContainer1.SplitterDistance = 235;
             splitContainer1.TabIndex = 3;
             // 
+            // btnYeni
+            // 
+            btnYeni.BackColor = Color.LimeGreen;
+            btnYeni.Location = new Point(399, 42);
+            btnYeni.Name = "btnYeni";
+            btnYeni.Size = new Size(65, 29);
+            btnYeni.TabIndex = 8;
+            btnYeni.Text = "Yeni";
+            btnYeni.UseVisualStyleBackColor = false;
+            btnYeni.Click += btnYeni_Click;
+            // 
             // btnEkleGuncelle
             // 
             btnEkleGuncelle.Location = new Point(331, 365);
@@ -204,6 +215,7 @@
             tsbSil.Name = "tsbSil";
             tsbSil.Size = new Size(36, 36);
             tsbSil.Text = "toolStripButton2";
+            tsbSil.Click += tsbSil_Click;
             // 
             // rdOzel
             // 
@@ -382,17 +394,6 @@
             label3.Size = new Size(73, 20);
             label3.TabIndex = 0;
             label3.Text = "Ad Soyad";
-            // 
-            // btnYeni
-            // 
-            btnYeni.BackColor = Color.LimeGreen;
-            btnYeni.Location = new Point(399, 42);
-            btnYeni.Name = "btnYeni";
-            btnYeni.Size = new Size(65, 29);
-            btnYeni.TabIndex = 8;
-            btnYeni.Text = "Yeni";
-            btnYeni.UseVisualStyleBackColor = false;
-            btnYeni.Click += btnYeni_Click;
             // 
             // Form1
             // 
