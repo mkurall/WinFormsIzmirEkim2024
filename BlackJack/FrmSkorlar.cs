@@ -27,11 +27,11 @@ namespace BlackJack
                 string satir = $"{el}.El ----> {skor.Oyuncu1Puan}            {skor.Oyuncu2Puan}";
                 listBox1.Items.Add(satir);
 
-                if (skor.Oyuncu1Puan == 21 || 
-                    (skor.Oyuncu1Puan < skor.Oyuncu2Puan && skor.Oyuncu2Puan!=21)) puan1++;
+                if (skor.Oyuncu1Puan == 21 ||
+                    (skor.Oyuncu1Puan < skor.Oyuncu2Puan && skor.Oyuncu2Puan != 21)) puan1++;
 
                 else if (skor.Oyuncu2Puan == 21 ||
-                    (skor.Oyuncu2Puan < skor.Oyuncu1Puan && skor.Oyuncu1Puan!=21)) puan2++;
+                    (skor.Oyuncu2Puan < skor.Oyuncu1Puan && skor.Oyuncu1Puan != 21)) puan2++;
 
                 el++;
             }
@@ -39,6 +39,11 @@ namespace BlackJack
             lblPuan1.Text = puan1.ToString();
             lblPuan2.Text = puan2.ToString();
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

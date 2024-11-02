@@ -94,6 +94,7 @@
             button1.TabIndex = 2;
             button1.Text = "Kapat";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // FrmSkorlar
             // 
@@ -107,8 +108,12 @@
             Controls.Add(label1);
             Controls.Add(listBox1);
             Font = new Font("Segoe UI", 14F);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(5);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FrmSkorlar";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmSkorlar";
             ResumeLayout(false);
             PerformLayout();
