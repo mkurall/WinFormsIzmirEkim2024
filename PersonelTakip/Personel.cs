@@ -8,6 +8,7 @@ namespace PersonelTakip
 {
     public class Personel
     {
+        public int Id { get; set; }//anahtar
         public string AdSoyad { get; set; }
         public string CalistigiBirim { get; set; }
         public int Cinsiyet { get; set; } //0-Erkek 1-Kadın

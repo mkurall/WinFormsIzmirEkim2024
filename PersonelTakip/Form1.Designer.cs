@@ -34,6 +34,7 @@
             lboxPersoneller = new ListBox();
             label2 = new Label();
             splitContainer1 = new SplitContainer();
+            btnEkleGuncelle = new Button();
             toolStrip1 = new ToolStrip();
             tsbKaydet = new ToolStripButton();
             toolStripSeparator1 = new ToolStripSeparator();
@@ -132,6 +133,7 @@
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.BackColor = Color.Salmon;
+            splitContainer1.Panel2.Controls.Add(btnEkleGuncelle);
             splitContainer1.Panel2.Controls.Add(toolStrip1);
             splitContainer1.Panel2.Controls.Add(rdOzel);
             splitContainer1.Panel2.Controls.Add(rdSgk);
@@ -155,6 +157,16 @@
             splitContainer1.Size = new Size(706, 418);
             splitContainer1.SplitterDistance = 235;
             splitContainer1.TabIndex = 3;
+            // 
+            // btnEkleGuncelle
+            // 
+            btnEkleGuncelle.Location = new Point(331, 365);
+            btnEkleGuncelle.Name = "btnEkleGuncelle";
+            btnEkleGuncelle.Size = new Size(124, 44);
+            btnEkleGuncelle.TabIndex = 7;
+            btnEkleGuncelle.Text = "Ekle/Güncelle";
+            btnEkleGuncelle.UseVisualStyleBackColor = true;
+            btnEkleGuncelle.Click += btnEkleGuncelle_Click;
             // 
             // toolStrip1
             // 
@@ -320,6 +332,7 @@
             // cboxPersonelTuru
             // 
             cboxPersonelTuru.FormattingEnabled = true;
+            cboxPersonelTuru.Items.AddRange(new object[] { "Yönetici", "Beyaz Yaka", "Gri Yaka", "Mavi Yaka" });
             cboxPersonelTuru.Location = new Point(18, 249);
             cboxPersonelTuru.Name = "cboxPersonelTuru";
             cboxPersonelTuru.Size = new Size(265, 28);
@@ -328,6 +341,7 @@
             // cboxCinsiyet
             // 
             cboxCinsiyet.FormattingEnabled = true;
+            cboxCinsiyet.Items.AddRange(new object[] { "Erkek", "Kadın" });
             cboxCinsiyet.Location = new Point(18, 190);
             cboxCinsiyet.Name = "cboxCinsiyet";
             cboxCinsiyet.Size = new Size(151, 28);
@@ -374,6 +388,7 @@
             Controls.Add(panel1);
             Name = "Form1";
             Text = "Personel Bilgi Formu";
+            Load += Form1_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -419,7 +434,6 @@
         private ToolStripButton tsbKaydet;
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripButton tsbSil;
-
-
+        private Button btnEkleGuncelle;
     }
 }
