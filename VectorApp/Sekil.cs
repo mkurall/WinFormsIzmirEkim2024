@@ -17,6 +17,7 @@ namespace VectorApp
     {
         public override void Paint(Graphics g)
         {
+
             g.DrawRectangle(Pens.Black, Bounds);
         }
     }

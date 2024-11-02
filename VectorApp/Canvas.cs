@@ -13,6 +13,12 @@ namespace VectorApp
         bool isDouseDown = false;
         List<Sekil> sekilList = new List<Sekil>();
 
+        Dortgen dortgen = new Dortgen();
+        Cizgi cizgi = new Cizgi();
+
+        public enum SekilTurleri { Pointer = 0, Dortgen = 1, Cizgi = 2};
+        public SekilTurleri SekilTuru { get; set; }
+
         public Canvas() {
             this.SetStyle(
                 ControlStyles.AllPaintingInWmPaint |
@@ -33,7 +39,24 @@ namespace VectorApp
             }
             ///
             if (isDouseDown)
-                e.Graphics.DrawRectangle(Pens.Black, Rectangle.FromLTRB(pt1.X, pt1.Y, pt2.X, pt2.Y));
+            {
+                if(SekilTuru == SekilTurleri.Dortgen)
+                {
+          
+                    dortgen.Bounds = Rectangle.FromLTRB( 
+                        
+                        Math.Min(pt1.X, pt2.X), Math.Min(pt1.Y, pt2.Y), Math.Max(pt1.X, pt2.X), Math.Max(pt1.Y, pt2.Y));
+   
+
+
+                    dortgen.Paint(e.Graphics);
+                }
+                else if(SekilTuru == SekilTurleri.Cizgi)
+                {
+                    cizgi.Bounds = Rectangle.FromLTRB(pt1.X, pt1.Y, pt2.X, pt2.Y);
+                    cizgi.Paint(e.Graphics);
+                }
+            }
         }
 
         protected override void OnMouseDown(MouseEventArgs e)
@@ -45,7 +68,21 @@ namespace VectorApp
         protected override void OnMouseUp(MouseEventArgs e)
         {
             pt2 = e.Location;
-            Sekil sekil = new Cizgi() { Bounds = Rectangle.FromLTRB(pt1.X, pt1.Y, pt2.X, pt2.Y) };
+            Sekil sekil = null;
+
+            if (SekilTuru == SekilTurleri.Dortgen)
+                sekil = new Dortgen()
+                {
+                    Bounds = Rectangle.FromLTRB(
+
+                        Math.Min(pt1.X, pt2.X), Math.Min(pt1.Y, pt2.Y),
+                        Math.Max(pt1.X, pt2.X), Math.Max(pt1.Y, pt2.Y))
+                };
+
+            else if (SekilTuru == SekilTurleri.Cizgi)
+                sekil = new Cizgi() { Bounds = Rectangle.FromLTRB(pt1.X, pt1.Y, pt2.X, pt2.Y) };
+
+
             sekilList.Add(sekil);
 
             Invalidate();

@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            button4 = new Button();
+            btnPointer = new Button();
             button3 = new Button();
-            button2 = new Button();
-            button1 = new Button();
+            btnLine = new Button();
+            btnRect = new Button();
             canvas1 = new Canvas();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -40,23 +40,24 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(255, 192, 128);
-            panel1.Controls.Add(button4);
+            panel1.Controls.Add(btnPointer);
             panel1.Controls.Add(button3);
-            panel1.Controls.Add(button2);
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(btnLine);
+            panel1.Controls.Add(btnRect);
             panel1.Location = new Point(12, 46);
             panel1.Name = "panel1";
             panel1.Size = new Size(91, 364);
             panel1.TabIndex = 0;
             // 
-            // button4
+            // btnPointer
             // 
-            button4.Location = new Point(14, 17);
-            button4.Name = "button4";
-            button4.Size = new Size(62, 63);
-            button4.TabIndex = 0;
-            button4.Text = "Pointer";
-            button4.UseVisualStyleBackColor = true;
+            btnPointer.Location = new Point(14, 17);
+            btnPointer.Name = "btnPointer";
+            btnPointer.Size = new Size(62, 63);
+            btnPointer.TabIndex = 0;
+            btnPointer.Text = "Pointer";
+            btnPointer.UseVisualStyleBackColor = true;
+            btnPointer.Click += btnPointer_Click;
             // 
             // button3
             // 
@@ -67,28 +68,31 @@
             button3.Text = "Ellips";
             button3.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnLine
             // 
-            button2.Location = new Point(14, 155);
-            button2.Name = "button2";
-            button2.Size = new Size(62, 63);
-            button2.TabIndex = 0;
-            button2.Text = "Line";
-            button2.UseVisualStyleBackColor = true;
+            btnLine.Location = new Point(14, 155);
+            btnLine.Name = "btnLine";
+            btnLine.Size = new Size(62, 63);
+            btnLine.TabIndex = 0;
+            btnLine.Text = "Line";
+            btnLine.UseVisualStyleBackColor = true;
+            btnLine.Click += btnLine_Click;
             // 
-            // button1
+            // btnRect
             // 
-            button1.Location = new Point(14, 86);
-            button1.Name = "button1";
-            button1.Size = new Size(62, 63);
-            button1.TabIndex = 0;
-            button1.Text = "Rect";
-            button1.UseVisualStyleBackColor = true;
+            btnRect.Location = new Point(14, 86);
+            btnRect.Name = "btnRect";
+            btnRect.Size = new Size(62, 63);
+            btnRect.TabIndex = 0;
+            btnRect.Text = "Rect";
+            btnRect.UseVisualStyleBackColor = true;
+            btnRect.Click += btnRect_Click;
             // 
             // canvas1
             // 
             canvas1.Location = new Point(109, 46);
             canvas1.Name = "canvas1";
+            canvas1.SekilTuru = Canvas.SekilTurleri.Pointer;
             canvas1.Size = new Size(668, 364);
             canvas1.TabIndex = 1;
             canvas1.Text = "canvas1";
@@ -109,10 +113,10 @@
         #endregion
 
         private Panel panel1;
-        private Button button4;
+        private Button btnPointer;
         private Button button3;
-        private Button button2;
-        private Button button1;
+        private Button btnLine;
+        private Button btnRect;
         private Canvas canvas1;
     }
 }
