@@ -46,10 +46,12 @@
             btnSkorlar = new Button();
             btnBaslat = new Button();
             lblKazanan = new Label();
+            panel2 = new Panel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbDeste).BeginInit();
             pnlOyuncu1Butonlar.SuspendLayout();
             pnlOyuncu2Butonlar.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -57,7 +59,7 @@
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(lblDesteKartSayisi);
             panel1.Controls.Add(pbDeste);
-            panel1.Location = new Point(466, 12);
+            panel1.Location = new Point(491, 23);
             panel1.Name = "panel1";
             panel1.Size = new Size(133, 194);
             panel1.TabIndex = 0;
@@ -85,7 +87,7 @@
             // pnlOyuncu1
             // 
             pnlOyuncu1.BorderStyle = BorderStyle.FixedSingle;
-            pnlOyuncu1.Location = new Point(70, 288);
+            pnlOyuncu1.Location = new Point(95, 299);
             pnlOyuncu1.Name = "pnlOyuncu1";
             pnlOyuncu1.Size = new Size(390, 170);
             pnlOyuncu1.TabIndex = 1;
@@ -95,7 +97,7 @@
             pnlOyuncu1Butonlar.Controls.Add(btnPas1);
             pnlOyuncu1Butonlar.Controls.Add(btnKartCek1);
             pnlOyuncu1Butonlar.Enabled = false;
-            pnlOyuncu1Butonlar.Location = new Point(70, 464);
+            pnlOyuncu1Butonlar.Location = new Point(95, 475);
             pnlOyuncu1Butonlar.Name = "pnlOyuncu1Butonlar";
             pnlOyuncu1Butonlar.Size = new Size(390, 48);
             pnlOyuncu1Butonlar.TabIndex = 2;
@@ -124,7 +126,7 @@
             // 
             lblOyuncu1.BackColor = Color.FromArgb(192, 255, 192);
             lblOyuncu1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            lblOyuncu1.Location = new Point(73, 248);
+            lblOyuncu1.Location = new Point(98, 259);
             lblOyuncu1.Name = "lblOyuncu1";
             lblOyuncu1.Size = new Size(387, 33);
             lblOyuncu1.TabIndex = 3;
@@ -134,7 +136,7 @@
             // 
             lblOyuncu1Sayi.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
             lblOyuncu1Sayi.ForeColor = Color.White;
-            lblOyuncu1Sayi.Location = new Point(4, 334);
+            lblOyuncu1Sayi.Location = new Point(29, 345);
             lblOyuncu1Sayi.Name = "lblOyuncu1Sayi";
             lblOyuncu1Sayi.Size = new Size(60, 46);
             lblOyuncu1Sayi.TabIndex = 4;
@@ -146,7 +148,7 @@
             lblOyuncu2Sayi.AutoSize = true;
             lblOyuncu2Sayi.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
             lblOyuncu2Sayi.ForeColor = Color.White;
-            lblOyuncu2Sayi.Location = new Point(1005, 334);
+            lblOyuncu2Sayi.Location = new Point(1030, 345);
             lblOyuncu2Sayi.Name = "lblOyuncu2Sayi";
             lblOyuncu2Sayi.Size = new Size(40, 46);
             lblOyuncu2Sayi.TabIndex = 8;
@@ -156,7 +158,7 @@
             // 
             lblOyuncu2.BackColor = Color.FromArgb(192, 255, 192);
             lblOyuncu2.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            lblOyuncu2.Location = new Point(612, 248);
+            lblOyuncu2.Location = new Point(637, 259);
             lblOyuncu2.Name = "lblOyuncu2";
             lblOyuncu2.Size = new Size(387, 33);
             lblOyuncu2.TabIndex = 7;
@@ -167,7 +169,7 @@
             pnlOyuncu2Butonlar.Controls.Add(btnPas2);
             pnlOyuncu2Butonlar.Controls.Add(btnKartCek2);
             pnlOyuncu2Butonlar.Enabled = false;
-            pnlOyuncu2Butonlar.Location = new Point(609, 464);
+            pnlOyuncu2Butonlar.Location = new Point(634, 475);
             pnlOyuncu2Butonlar.Name = "pnlOyuncu2Butonlar";
             pnlOyuncu2Butonlar.Size = new Size(390, 48);
             pnlOyuncu2Butonlar.TabIndex = 6;
@@ -195,15 +197,16 @@
             // pnlOyuncu2
             // 
             pnlOyuncu2.BorderStyle = BorderStyle.FixedSingle;
-            pnlOyuncu2.Location = new Point(609, 288);
+            pnlOyuncu2.Location = new Point(634, 299);
             pnlOyuncu2.Name = "pnlOyuncu2";
             pnlOyuncu2.Size = new Size(390, 170);
             pnlOyuncu2.TabIndex = 5;
+            pnlOyuncu2.SizeChanged += pnlOyuncu2_SizeChanged;
             // 
             // btnSkorlar
             // 
             btnSkorlar.Font = new Font("Segoe UI", 12F);
-            btnSkorlar.Location = new Point(888, 25);
+            btnSkorlar.Location = new Point(786, 23);
             btnSkorlar.Name = "btnSkorlar";
             btnSkorlar.Size = new Size(171, 45);
             btnSkorlar.TabIndex = 9;
@@ -214,7 +217,7 @@
             // btnBaslat
             // 
             btnBaslat.Font = new Font("Segoe UI", 12F);
-            btnBaslat.Location = new Point(51, 26);
+            btnBaslat.Location = new Point(29, 23);
             btnBaslat.Name = "btnBaslat";
             btnBaslat.Size = new Size(171, 45);
             btnBaslat.TabIndex = 9;
@@ -228,39 +231,50 @@
             lblKazanan.BackColor = Color.LavenderBlush;
             lblKazanan.Font = new Font("Segoe UI", 30F, FontStyle.Bold);
             lblKazanan.ForeColor = Color.Crimson;
-            lblKazanan.Location = new Point(127, 169);
+            lblKazanan.Location = new Point(152, 180);
             lblKazanan.Name = "lblKazanan";
             lblKazanan.Size = new Size(277, 67);
             lblKazanan.TabIndex = 10;
             lblKazanan.Text = "KAZANAN";
             lblKazanan.Visible = false;
             // 
+            // panel2
+            // 
+            panel2.Controls.Add(lblKazanan);
+            panel2.Controls.Add(btnBaslat);
+            panel2.Controls.Add(panel1);
+            panel2.Controls.Add(btnSkorlar);
+            panel2.Controls.Add(pnlOyuncu1);
+            panel2.Controls.Add(pnlOyuncu1Butonlar);
+            panel2.Controls.Add(lblOyuncu2Sayi);
+            panel2.Controls.Add(lblOyuncu1);
+            panel2.Controls.Add(lblOyuncu2);
+            panel2.Controls.Add(lblOyuncu1Sayi);
+            panel2.Controls.Add(pnlOyuncu2Butonlar);
+            panel2.Controls.Add(pnlOyuncu2);
+            panel2.Location = new Point(29, 21);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1091, 539);
+            panel2.TabIndex = 11;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Green;
-            ClientSize = new Size(1071, 551);
-            Controls.Add(lblKazanan);
-            Controls.Add(btnBaslat);
-            Controls.Add(btnSkorlar);
-            Controls.Add(lblOyuncu2Sayi);
-            Controls.Add(lblOyuncu2);
-            Controls.Add(pnlOyuncu2Butonlar);
-            Controls.Add(pnlOyuncu2);
-            Controls.Add(lblOyuncu1Sayi);
-            Controls.Add(lblOyuncu1);
-            Controls.Add(pnlOyuncu1Butonlar);
-            Controls.Add(pnlOyuncu1);
-            Controls.Add(panel1);
+            ClientSize = new Size(1144, 551);
+            Controls.Add(panel2);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "Form1";
             Text = "BlackJack";
+            SizeChanged += Form1_SizeChanged;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pbDeste).EndInit();
             pnlOyuncu1Butonlar.ResumeLayout(false);
             pnlOyuncu2Butonlar.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -283,5 +297,6 @@
         private Button btnSkorlar;
         private Button btnBaslat;
         private Label lblKazanan;
+        private Panel panel2;
     }
 }

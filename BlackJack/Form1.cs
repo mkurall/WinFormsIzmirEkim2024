@@ -231,5 +231,15 @@ namespace BlackJack
             FrmSkorlar form = new FrmSkorlar(skorlar);
             form.ShowDialog();
         }
+
+        private void pnlOyuncu2_SizeChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void Form1_SizeChanged(object sender, EventArgs e)
+        {
+            panel2.Location = new Point((Width - panel2.Width) / 2, panel2.Top);
+
+        }
     }
 }
