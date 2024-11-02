@@ -11,6 +11,7 @@ namespace VectorApp
         Point pt1 = new Point();//ilk tıklanan yer
         Point pt2 = new Point();//son bırakılan yer
         bool isDouseDown = false;
+        List<Sekil> sekilList = new List<Sekil>();
 
         public Canvas() {
             this.SetStyle(
@@ -25,8 +26,13 @@ namespace VectorApp
             e.Graphics.FillRectangle(Brushes.White, new Rectangle(0, 0, Width-1, Height-1));
             e.Graphics.DrawRectangle(Pens.Gray, new Rectangle(0, 0, Width - 1, Height - 1));
             ////
+            //Eski çizimleri çizdir
+            foreach (var sekil in sekilList)
+            {
+                sekil.Paint(e.Graphics);//benim grafik alanıma kendini çiz
+            }
             ///
-            if(isDouseDown)
+            if (isDouseDown)
                 e.Graphics.DrawRectangle(Pens.Black, Rectangle.FromLTRB(pt1.X, pt1.Y, pt2.X, pt2.Y));
         }
 
@@ -39,6 +45,9 @@ namespace VectorApp
         protected override void OnMouseUp(MouseEventArgs e)
         {
             pt2 = e.Location;
+            Sekil sekil = new Cizgi() { Bounds = Rectangle.FromLTRB(pt1.X, pt1.Y, pt2.X, pt2.Y) };
+            sekilList.Add(sekil);
+
             Invalidate();
             isDouseDown = false;
         }
