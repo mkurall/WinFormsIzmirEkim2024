@@ -6,7 +6,8 @@ namespace BlackJack
         enum KartTuru { Kupa = 0, Karo = 1, Sinek = 2, Maca = 3 };
         //her bir türde 13 kart var
         int siradakiOyuncu = 0; // 2 oyuncu var (0-1)
-
+        int oyuncuSayi1 = 0;
+        int oyuncuSayi2 = 0;
 
         public Form1()
         {
@@ -21,6 +22,12 @@ namespace BlackJack
                 deste.Add(i);
             }
             lblDesteKartSayisi.Text = deste.Count.ToString();
+
+            oyuncuSayi1 = 0;
+            oyuncuSayi2 = 0;
+
+            lblOyuncu1Sayi.Text = oyuncuSayi1.ToString();
+            lblOyuncu2Sayi.Text = oyuncuSayi2.ToString();
 
             SiradakiOyuncuyuDegistir(0);
         }
@@ -52,18 +59,25 @@ namespace BlackJack
 
         private void btnKartCek1_Click(object sender, EventArgs e)
         {
-            KartCek(pnlOyuncu1);
+            int sayi = KartCek(pnlOyuncu1);
+            oyuncuSayi1 += sayi;
+            
+            lblOyuncu1Sayi.Text = oyuncuSayi1.ToString();
+
+
             SiradakiOyuncuyuDegistir(1);
         }
 
         private void btnKartCek2_Click(object sender, EventArgs e)
         {
-            KartCek(pnlOyuncu2);
+            int sayi = KartCek(pnlOyuncu2);
+            oyuncuSayi2 += sayi;
 
+            lblOyuncu2Sayi.Text = oyuncuSayi2.ToString();
             SiradakiOyuncuyuDegistir(0);
         }
 
-        void KartCek(Panel pnl)
+        int KartCek(Panel pnl)
         {
             int kart = deste[0];
 
@@ -81,12 +95,16 @@ namespace BlackJack
             PictureBox pb = new PictureBox();
             pb.Size = new Size(103, 140);
             
-            pb.Location = new Point(5, 5);
+            pb.Location = new Point(5 + pnl.Controls.Count*25, 5);
 
             pb.Image = (Image)Properties.Resources.ResourceManager.GetObject(resAdi);
             pb.SizeMode = PictureBoxSizeMode.StretchImage;
 
             pnl.Controls.Add(pb);
+
+            pb.BringToFront();
+
+            return sira + 1;
         }
     }
 }
